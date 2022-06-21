@@ -1,0 +1,36 @@
+<div class="containerLogin d-flex flex-column">
+
+  <nav class="navbar" style="background-color: #007894;">
+    <div class="container-md" >
+      <a class="navbar-brand" [routerLink]="'/'">
+          <img class="img-fluid" style="height: 50px ;" src="../assets/logo_nuevo.svg" alt="">
+      </a>
+    </div>
+  </nav>
+
+  <div class="d-none d-md-block background-max">
+
+  </div>
+
+  <div class="login-card d-flex flex-column bg-white rounded flex-grow-1 flex-md-grow-0">
+
+    <h3 class="h3">¡Hola! Para seguir, ingresá tu usuario y contraseña</h3>
+
+    <form class="my-3" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+          <label for="username" class="form-label opacity-75 mb-0">Usuario</label>
+          <input type="text" class="form-control form-control-login" id="username" name="username" aria-describedby="name2" formControlName="username">
+          <div class="alert alert-danger p-1 font-14 " *ngIf="contactForm.get('username')?.invalid && submitted "> Se debe completar el campo con un mail correcto. </div>
+          <div id="name2" class="form-text">Nunca compartas tu usuario con otra persona.</div>
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1" class="form-label opacity-75 mb-0">Contraseña</label>
+          <input type="password" class="form-control form-control-login" id="password" name="password" formControlName="password">
+          <div class="alert alert-danger p-1 font-14" *ngIf="contactForm.get('password')?.invalid && submitted "> Se debe ingresar una password entre 8 y 15 caracteres. </div>
+        </div>
+        <button type="submit" class="btn w-100 fs-6 p-2 text-white " style="background-color:#007894;">Ingresar</button>
+        <button type="submit" class="my-2  text-primary btn w-100 fs-6">Crear cuenta</button>
+      </form>
+  </div>
+
+</div>

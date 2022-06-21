@@ -1,0 +1,145 @@
+
+.form-select:focus{
+  border-color: none!important;
+  box-shadow:none;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  object-fit: fill;
+}
+
+.font-14{
+  font-size: 14px;
+}
+
+.font-18{
+  font-size: 14px;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+.navbar-toggler {
+  padding: 1px;
+}
+
+
+.decoration-none{
+  text-decoration: none;
+}
+
+
+.carousel-control-prev-cards {
+  top:-60px;
+  left: -25px;
+  width: 15%;
+  justify-content: left;
+  position: absolute;
+}
+
+
+.carousel-control-next-cards {
+  top: -60px;
+  right: -25px;
+  width: 15%;
+  justify-content: end;
+  position: absolute;
+}
+
+.card_link {
+  cursor: pointer;
+  height: 100%;
+  text-decoration: none;
+  width: 100%;
+  z-index: 0;
+  transition: height 2s;
+}
+
+.carousel-inner-cards {
+  height: 370px;
+  max-height: 390px;
+  transition: height 2s;
+}
+
+.card {
+  max-height: 300px;
+  height: 300px;
+  z-index: 3;
+}
+
+.opacada-completo{
+  display: none;
+}
+
+.card:hover .card_link {
+  box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 10%);
+}
+
+.card:hover {
+  max-height: 390px;
+  min-height: 320px;
+  height: auto;
+  transition: max-height 0.25s;
+}
+
+.card:hover  .opacada-completo {
+  display: block;
+
+}
+
+.img-conteiner-footer{
+  height: 55px;
+}
+
+#carouselFooter .carousel-indicators{
+  bottom: -40px;
+}
+
+#carouselFooter .carousel-indicators button{
+  background-color: grey;
+}
+
+.info_descubri_tittle{
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bolder;
+  opacity: 50%;
+}
+
+.info_descubri_container:hover{
+  box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+
+.category_container {
+  height: 170px ;
+}
+
+.category_container .icon{
+  height: 44px;
+  width: 44px;
+}
+
+.category{
+  text-decoration: none;
+}
+
+.category:hover {
+  background-color: #007994ac;
+}
+.nav-link {
+font-size: 16px;
+color: white;
+}
+
+.nav-link:hover {
+  color: black !important;
+  opacity: 50%;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

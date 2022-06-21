@@ -1,0 +1,390 @@
+<div class="container-xxl justify-content-center d-flex p-0" style="width: auto; min-width: 80%">
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade w-100" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../assets/hotsale_ciudad_large.png " class="d-none d-sm-block w-100" alt="..." />
+        <img src="../assets/hotsale_chica.png" class="d-block d-sm-none w-100" alt="..." />
+      </div>
+      <div class="carousel-item">
+        <img src="../assets/promoGamer_large.png" class="d-none d-sm-block w-100" alt="..." />
+        <img src="../assets/mundo_gamer_response.png" class="d-block d-sm-none w-100" alt="..." />
+      </div>
+      <div class="carousel-item">
+        <img src="../assets/promoCacerolas_1.png" class="d-none d-sm-block w-100" alt="..." />
+        <img src="../assets/enovaResponse.png" class="d-block d-sm-none w-100" alt="..." />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="container-md p-0 justify-content-center d-flex">
+  <div
+    class="row bg-white mt-sm-0 mt-md-5 mx-0 mx-md-2 py-4 d-flex justify-content-between align-items-center col col-lg-10">
+    <!-- Este es el container blanco -->
+
+    <div class="col p-0 d-flex justify-content-center gap-2 align-content-center">
+      <!-- Este es una carta -->
+      <img src="../assets/CreditCard.svg" alt="" />
+      <span class="text-start font-18">
+        Tarjeta de crédito <br />
+        <a href="" class="font-14 decoration-none">
+          Ver promociones bancarias</a>
+      </span>
+    </div>
+
+    <div class="d-none col p-0 d-sm-flex justify-content-center gap-2 align-items-center">
+      <!-- Este es una carta -->
+      <img class="img-fluid" src="../assets/creditCard2.svg" alt="" />
+      <span class="text-start font-18">Tarjeta de debito <br />
+        <a class="font-14 decoration-none" href="">Ver más</a>
+      </span>
+    </div>
+
+    <div class="d-none col p-0 d-md-flex justify-content-center gap-2 align-items-center">
+      <!-- Este es una carta -->
+      <img src="../assets/valePei.webp" />
+      <span class="text-start font-18">
+        Billetera Virtual <br />
+        <a class="font-14 decoration-none" href="https://www.valepei.com.ar/" target="_blank">Conoce ValePei</a>
+      </span>
+    </div>
+
+    <div class="d-none col p-0 d-lg-flex justify-content-center gap-2 align-items-center">
+      <!-- Este es una carta -->
+      <img src="../assets/cashSymbol.svg" alt="" />
+      <span class="text-start font-18">Efectivo <br />
+        <a class="font-14 decoration-none" href="">Ver más</a>
+      </span>
+    </div>
+
+    <div class="d-none d-sm-flex col-1 p-0 justify-content-center align-items-center border-start">
+      <!-- Este es una carta -->
+      <span class="d-flex justify-content-center align-items-center">
+        <img class="" src="../assets/plusSymbol.svg" alt="" />
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="d-none container-sm align-items-center d-sm-flex flex-column mt-4 p-0">
+  <div class="container-sm p-0 d-flex align-self-start gap-3 col-lg-10 align-items-end">
+    <p class="h2 text-start fw-light m-0">Publicaciones</p>
+    <a href="" class="text-center decoration-none">Ver todas</a>
+  </div>
+
+  <div id="carouselExampleDark" class="carousel carousel-dark slide mt-3 col-lg-10" data-bs-ride="carousel">
+    <div class="carousel-inner carousel-inner-cards">
+
+      <div class="carousel-item active" data-bs-interval="10000">
+        <div class="div d-flex gap-3">
+
+
+          <div class="card col" *ngFor="let i = index; let publicacion of publicaciones.slice(0,5)" [ngClass]="{
+          'display d-md-block':i==3  ,
+          'd-none d-lg-block' : i==4}">
+            <a class="card_link" routerLink="/publicacion/{{publicacion.id}}">
+              <img src="http://localhost:8080/get/image/{{publicacion.id}}" class="card-img-top" alt="..." />
+              <div class="card-body border-top border-dark border-opacity-10">
+                <h5 class="text-dark">{{publicacion.precio | mask: 'separator.2':'.'}}$</h5>
+                <p class="m-0 fw-bolder fs-6 opacity-75 text-success p-0 m-0">
+                  Envio gratis
+                </p>
+                <p class="m-0 lh-1 opacada-completo text-dark fw-lighter">
+                  {{publicacion.nombre}}
+                </p>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="carousel-item" data-bs-interval="10000">
+        <div class="div d-flex gap-3">
+          <div class="card col" *ngFor="let publicacion of publicaciones.slice(5,10); let i = index" [ngClass]="{
+            'display d-md-block':i==3  ,
+            'd-none d-lg-block' : i==4}">
+            <a class="card_link" routerLink="/publicacion/{{publicacion.id}}">
+              <img src="http://localhost:8080/get/image/{{publicacion.id}}" class="card-img-top" alt="..." />
+              <div class="card-body border-top border-dark border-opacity-10">
+                <h5 class="text-dark">{{publicacion.precio | mask: 'separator.2':'.'}}$</h5>
+                <p class="m-0 fw-bolder fs-6 opacity-75 text-success p-0 m-0">
+                  Envio gratis
+                </p>
+                <p class="m-0 lh-1 opacada-completo text-dark fw-lighter">
+                  {{publicacion.nombre}}
+                </p>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev carousel-control-prev-cards" type="button"
+      data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next carousel-control-next-cards" type="button"
+      data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="bg-white p-0 m-0 d-flex flex-column d-sm-none rounded m-2">
+
+  <h3 class="h3 border-bottom p-0 ps-2">Publicaciones</h3>
+
+  <div class="d-flex align-items-center  w-100 border-bottom">
+    <img class="img-fluid col-3" src="../assets/tv1.webp" alt="">
+    <div class="col p-3">
+      <p>Televisor 40''. Pantalla OLED-4K</p>
+      <h6>50.000$</h6>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center  w-100 border-bottom">
+    <img class="img-fluid col-3" src="../assets/tv1.webp" alt="">
+    <div class="col p-3">
+      <p>Televisor 40''. Pantalla OLED-4K</p>
+      <h6>50.000$</h6>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center  w-100 border-bottom">
+    <img class="img-fluid col-3" src="../assets/tv1.webp" alt="">
+    <div class="col p-3">
+      <p>Televisor 40''. Pantalla OLED-4K</p>
+      <h6>50.000$</h6>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container-sm align-items-center d-sm-flex flex-column mt-0 p-0 mb-3">
+  <div class="container-sm p-0 d-flex align-self-start gap-3 col-lg-10 align-items-end">
+    <p class="h2 d-none d-md-block text-start fw-light m-0 mb-2">Descubrí</p>
+  </div>
+
+  <div
+    class="container p-0 d-flex flex-wrap col-lg-10 gap-3 flex-wrap flex-md-nowrap mt-3 mt-md-1 justify-content-center">
+
+    <div
+      class="info_descubri_container col-* mx-2 mx-md-0 col-md-* bg-white d-flex align-items-center rounded overflow-hidden">
+
+      <div class="col-6 m-3">
+
+        <span class="info_descubri_tittle"> LO MEJOR EN HERRAMIENTAS</span>
+        <h3 class="h4"> HASTA 30% OFF <br> Y 6 CUOTAS SIN INTERES </h3>
+
+      </div>
+
+      <div class="info_descubri_container_img col-6">
+
+        <img class="img-fluid" src="../assets/descubriHerramientas.webp" alt="">
+
+      </div>
+
+    </div>
+
+    <div
+      class="info_descubri_container col-* mx-2 mx-md-0 col-md-* bg-white d-flex align-items-center rounded overflow-hidden">
+
+      <div class="col-7 m-3 ">
+
+        <span class="info_descubri_tittle"> AHORA O NUNCA</span>
+        <h3 class="h4"> HASTA 40% OFF <br> ¡POR TIEMPO LIMITADO! </h3>
+
+      </div>
+
+      <div class="info_descubri_container_img col-5">
+
+        <img class="img-fluid" src="../assets/descubriPc.webp" alt="">
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>
+
+
+<div class="container-sm align-items-center d-sm-flex flex-column mt-0 p-0 mb-3">
+  <div class="container-sm p-0 d-flex align-self-start gap-3 col-lg-10 align-items-end">
+    <p class="h2 text-start fw-light m-0 mb-2">Categorías populares</p>
+  </div>
+
+  <div class="container overflow-hidden p-0 d-flex flex-column col-lg-10 mt-1 bg-white rounded">
+
+    <div class="row d-flex align-items-center justify-content-center m-0">
+
+      <a href=""
+        class=" p-0 category border-end border-bottom category_container col d-flex flex-column align-items-center justify-content-center ">
+        <img class="icon  img-fluid" src="../assets/coche.png" alt="">
+        <p class=" text-center p-0 " style="color:black;">Vehiculos</p>
+      </a>
+
+      <a href=""
+        class=" p-0 category  border-end border-bottom category_container col d-flex flex-column align-items-center justify-content-center ">
+        <img class="icon img-fluid" src="../assets/computer.png" alt="">
+        <p class=" text-center p-0" style="color:black;">Computación</p>
+      </a>
+
+      <a href=""
+        class=" p-0 category  border-end border-bottom category_container col d-flex flex-column align-items-center justify-content-center ">
+        <img class="icon img-fluid" src="../assets/mobile-phone.png" alt="">
+        <p class=" text-center p-0" style="color:black;"> Celulares </p>
+      </a>
+
+
+      <a href=""
+        class=" p-0 category  border-end border-bottom category_container col d-flex flex-column align-items-center justify-content-center ">
+        <img src="../assets/tshirt.png" alt="" class="icon img-fluid">
+        <p class=" text-center p-0" style="color:black;"> Ropa </p>
+      </a>
+
+
+      <a href=""
+        class=" p-0 category  border-end border-bottom category_container col d-none d-lg-flex flex-column align-items-center justify-content-center ">
+        <img src="../assets/sillon.png" alt="" class="icon img-fluid">
+        <p class=" text-center" style="color:black;"> Hogar y Jardin </p>
+      </a>
+
+      <a href=""
+        class=" p-0 category  border-end border-bottom category_container col d-none d-lg-flex flex-column align-items-center justify-content-center ">
+        <img class="icon img-fluid" src="../assets/mobile-phone.png" alt="">
+        <p class=" text-center" style="color:black;"> Celulares y Teléfonos </p>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="container-fluid bg-white justify-content-center d-flex">
+
+  <div class="container-md d-none d-lg-flex p-0 justify-content-center ">
+    <div class="row bg-white py-4 m-0 d-flex justify-content-between align-items-center col col-lg-10">
+
+      <div class="row mt-0">
+
+        <div class="col col-md-4 text-center border-end">
+
+          <div class="d-flex flex-column align-items-center justify-content-center">
+
+            <div class="img-conteiner-footer">
+              <img src="../assets/payment.svg" alt="">
+            </div>
+            <h5 class="h5">Elegí como pagar</h5>
+            <div class="fw-lighter font-14"> Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con
+              ValePei.</div>
+            <a href="" class=" decoration-none font-10 ">Como pagar tus compras</a>
+
+          </div>
+        </div>
+
+        <div class="col col-md-4 text-center border-end">
+
+          <div class="d-flex flex-column align-items-center justify-content-center">
+            <div class="img-conteiner-footer">
+              <img src="../assets/shipping.svg" alt="">
+            </div>
+            <h5 class="h5">Envío gratis desde $ 4.000</h5>
+            <div class="fw-lighter font-14"> Solo por estar registrado en Ciudad Market tenés envíos gratis en miles de
+              productos.</div>
+            <a href="" class=" decoration-none font-10">Conocé más sobre este beneficio</a>
+
+          </div>
+        </div>
+
+        <div class="col col-md-4 text-center">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+            <div class="img-conteiner-footer">
+              <img src="../assets/protected.svg" alt="">
+            </div>
+            <h5 class="h5">Seguridad, de principio a fin</h5>
+            <div class="fw-lighter font-14"> ¿No te gusta? ¡Devolvelo! En Ciudad Market siempre protegido.</div>
+            <a href="" class=" decoration-none font-10">Cómo te protegemos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-md d-lg-none p-4 " style="min-height: 200px ;max-height: 200px;">
+
+    <div id="carouselFooter" class="carousel slide" data-bs-ride="true" style="min-height: 160px ;max-height: 160px;">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselFooter" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselFooter" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselFooter" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+
+            <div class="img-conteiner-footer">
+              <img src="../assets/payment.svg" alt="">
+            </div>
+            <h5 class="h5">Elegí como pagar</h5>
+            <div class="fw-lighter font-14"> Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con ValePei.</div>
+            <a href="" class=" decoration-none font-10 ">Como pagar tus compras</a>
+
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+            <div class="img-conteiner-footer">
+              <img src="../assets/shipping.svg" alt="">
+            </div>
+            <h5 class="h5">Envío gratis desde $ 4.000</h5>
+            <div class="fw-lighter font-14"> Solo por estar registrado en Ciudad Market tenés envíos gratis en miles de
+              productos.</div>
+            <a href="" class=" decoration-none font-10">Conocé más sobre este beneficio</a>
+
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+
+            <div class="img-conteiner-footer">
+              <img src="../assets/payment.svg" alt="">
+            </div>
+            <h5 class="h5">Elegí como pagar</h5>
+            <div class="fw-lighter font-14"> Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Banco Ciudad.</div>
+            <a href="#" class=" decoration-none font-10 ">Como pagar tus compras</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

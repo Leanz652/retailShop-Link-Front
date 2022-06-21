@@ -1,0 +1,156 @@
+<div *ngIf="estaVisible" class="container-fluid p-0">
+  <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column pt-2" style="background-color: #007894">
+    <div class="container-lg d-lg-flex p-1">
+      <a class="d-none d-lg-block col-lg-2 text-center" [routerLink]="'/'"><img class="img-fluid"
+          src="../assets/logo_nuevo.svg" alt="" /></a>
+      <a class="d-lg-none col-sm-1 col-md-1 " [routerLink]="'/'"><img src="../assets/logo_ciudad_small.png"
+          alt="" /></a>
+      <div class="col-7 col-sm-9 col-md-9 col-lg-7">
+        <form class="input-group pb-2">
+          <input class="form-control text-truncate border" type="search" placeholder="Buscar productos, marcas y más..."
+            aria-label="Search" />
+          <button class="btn border bg-white text-light" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <div class=" text-decoration-none d-none d-lg-flex col-lg-3 ms-3 gap-1 align-items-center pb-2" >
+        <img src="../assets/bolsa-de-la-compra.png" style="height: 30px; color: white;" alt="">
+        <span class=" text-white align-self-end">Tienda Online</span>
+        <a *ngIf="estaLogueado" class="nav-link text-white align-self-end ms-3" aria-current="page" (click)="logout()" href="" >Cerrar Sesión</a>
+      </div>
+
+      <div class="d-lg-none col-3 col-sm-2 col-md-2 d-flex justify-content-around">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="nav-link position-relative" aria-current="page" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="30px" fill="currentColor" class="bi bi-basket3"
+            viewBox="0 -3 20 20">
+            <path
+              d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z" />
+          </svg>
+          <span class="position-absolute top-50 translate-middle badge rounded-pill bg-danger"
+            style="font-size: 10px; right: -20px;">
+            1+
+            <span class="visually-hidden">items checkbox</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse d-lg-none" id="navbarTogglerDemo02">
+        <ul class="d-lg-none navbar-nav text-end">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Historial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Supermercado</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Moda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Vender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Ayuda</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-lg d-none d-lg-flex">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-7">
+        <div class="d-md-flex ">
+          <ul class="navbar-nav font-14">
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Categorías
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="">Técnología</a></li>
+                <li><a class="dropdown-item" href="">Supermercado</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="">Tiendas Oficiales</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a class="nav-link" aria-current="page" href="">Ofertas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Historial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Supermercado</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Moda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Vender</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Ayuda</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 ms-3">
+        <div class="d-md-flex">
+          <ul class="navbar-nav ">
+            <div *ngIf="!estaLogueado" class="d-flex">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="">Creá tu cuenta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="'/login'">Ingresá</a>
+              </li>
+            </div>
+
+            <div *ngIf="estaLogueado" class="d-flex">
+
+              <li class="nav-item d-flex" >
+                <a *ngIf="!esVendedor" class="nav-link" aria-current="page" [routerLink]="'/mis-compras'">Mis compras</a>
+                <a *ngIf="esVendedor" class="nav-link" aria-current="page" [routerLink]="'/mis-publicaciones'">Mis publicaciones</a>
+                <a *ngIf="esVendedor" class="nav-link" aria-current="page" [routerLink]="'/publicar'">Publicar</a>
+              </li>
+
+            </div>
+
+            <li *ngIf="!esVendedor && estaLogueado" class="nav-item">
+              <a class="nav-link position-relative" aria-current="page" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="30px" fill="currentColor"
+                  class="bi bi-basket3" viewBox="0 1 20 20">
+                  <path
+                    d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z" />
+                </svg>
+                <span class="position-absolute top-50 translate-middle badge rounded-pill bg-danger"
+                  style="font-size: 10px">
+                  1+
+                  <span class="visually-hidden">items checkbox</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
