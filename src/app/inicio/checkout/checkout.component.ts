@@ -29,6 +29,7 @@ export class CheckoutComponent implements OnInit {
   cuponNro: string = "";
   descuentoAplicado : number = 0;
   cuponAplicado: string = "0";
+  idImage: any;
 
   constructor(private formBuilder: FormBuilder,
     breakpointObserver: BreakpointObserver,
@@ -48,6 +49,10 @@ export class CheckoutComponent implements OnInit {
     console.log(this.producto);
     this.dataService.getProductosById(this.producto).subscribe((response) => {
       this.producto = response;
+
+      this.dataService.getImagenByLink(this.producto._links.imagen.href).subscribe((rtaImg : any) => {
+        this.idImage = rtaImg.id;
+      });
     })
 
 

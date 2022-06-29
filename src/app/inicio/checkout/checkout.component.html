@@ -32,7 +32,7 @@
                   <h5 class="">Información sobre tu compra: </h5>
 
                   <div class=" col-12 d-flex flex-column flex-lg-row mt-3 align-items-center">
-                    <img class="col-8 col-lg-5 " src="http://localhost:8080/get/image/{{producto.id}}" alt="">
+                    <img class="col-8 col-lg-5 " src="https://retailshop-back.herokuapp.com/get/image/{{idImage}}" alt="">
                     <div class="d-flex col-12 col-lg-7 flex-column gap-3">
                       <div class=" text-start">
                         Producto: {{producto.nombre}}
@@ -154,7 +154,7 @@
           </form>
 
 
-          <div class="text-start opacity-50">
+          <div class="text-start opacity-75">
             Descuentos aplicados: <span class=" text-success fw-bold ">{{descuentoAplicado | mask: 'separator.2':'.'}}$ </span>
           </div>
 
@@ -169,7 +169,7 @@
         </mat-step>
         <mat-step label="Envío" state="shipping"> Tu compra ha sido confirmada, se estará contactando el vendedor para
           acordar la entrega del producto.
-          Puedes seguir el estado del mismo desde <a href="">aqui</a> </mat-step>
+          Puedes seguir el estado del mismo desde <a href="" [routerLink]="'/mis-compras'">aqui</a> </mat-step>
       </mat-horizontal-stepper>
     </mat-card>
   </div>

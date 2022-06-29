@@ -1,3 +1,4 @@
+import { ListPublicacionesComponent } from './list-publicaciones/list-publicaciones.component';
 import { ComprarGuard } from './guard/comprar.guard';
 import { CheckoutComponent } from './inicio/checkout/checkout.component';
 import { PublicacionComponent } from './inicio/publicacion/publicacion.component';
@@ -22,6 +23,8 @@ const routes: Routes =
 {path : "mis-publicaciones", component: MisPublicacionesComponent, canActivate: [PublicarGuard]},
 {path: "publicacion/:id", component: PublicacionComponent},
 {path: "checkout", component: CheckoutComponent, canActivate: [ComprarGuard]},
+{path: "publicaciones", component: ListPublicacionesComponent},
+{ path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
 ];
 
 @NgModule({

@@ -51,8 +51,6 @@ export class PublicarVentaComponent implements OnInit {
     this.estaVisible.hacerVisibleHeader();
     this.contactForm = this.initForm();
     this.categorias = this.dataService.getCategorias();
-    console.log(this.categorias);
-
 
     this.dataService.getProveedores().subscribe((proveedores: any) => {
       this.proveedoresDisp = proveedores._embedded.proveedors;

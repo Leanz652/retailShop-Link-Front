@@ -2,6 +2,7 @@ import { UsersService } from './login/service/users.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -54,12 +55,17 @@ export class DataService {
   }
 
   getProductos() {
-    return this.http.get("http://localhost:8080/productos/");
+    return this.http.get(environment.apiBackend + "productos/");
   }
 
 
+
+  getProductosPagination(page:any, size:any){
+    return this.http.get(environment.apiBackend + "productos/" + "?page="+page + "&" + "size=" + size , {observe: 'response'});
+  }
+
   getProductosById(id: any) {
-    return this.http.get("http://localhost:8080/productos/" + id);
+    return this.http.get(environment.apiBackend + "productos/" + id);
   }
 
   getProveedorByLink(link: any) {
@@ -68,33 +74,57 @@ export class DataService {
 
 
   getCupon(cupon: string) {
-    return this.http.get("http://localhost:8080/promociones/search/findByCodigoCupon/?codigo="+cupon, {observe: 'response'});
+    return this.http.get( environment.apiBackend + "promociones/search/findByCodigoCupon/?codigo="+cupon, {observe: 'response'});
   }
 
   getDolar() {
-    return this.http.get("http://localhost:8080/APIDOLAR");
+    return this.http.get( environment.apiBackend +"APIDOLAR");
   }
 
+  getItemDeCompras(linkItem : any) {
+    return this.http.get("")
+  }
 
   postProducto(producto : any) {
-    return this.http.post("http://localhost:8080/productos/publicar/", producto, {observe: 'response'});
+    return this.http.post(environment.apiBackend + "productos/publicar/", producto, {observe: 'response'});
   }
 
+
+
   postCompra(compra : any) {
-    return this.http.post("http://localhost:8080/ordenes/purchase/", compra, {observe: 'response'});
+    return this.http.post(environment.apiBackend +"ordenes/purchase/", compra, {observe: 'response'});
   }
 
   getPublicacionesVendedor(){
-    return this.http.get("http://localhost:8080/vendedores/"+ this.userService.getIdRol() + "/productosPublicados");
+    return this.http.get(environment.apiBackend +"vendedores/"+ this.userService.getIdRol());
+  }
+
+
+  getPublicacionesVendedorSinHeroku(){
+    return this.http.get(environment.apiBackend +"vendedores/"+ this.userService.getIdRol() + "/productosPublicados");
   }
 
   getComprasComprador(){
-    return this.http.get("http://localhost:8080/clientes/"+ this.userService.getIdRol() + "/comprasEfectuadas");
+    return this.http.get(environment.apiBackend +"clientes/"+ this.userService.getIdRol() + "/comprasEfectuadas?projection=compras");
   }
 
 
+  getImagenByLink(imagenLink : any) {
+    return this.http.get(imagenLink);
+  }
+
+  updatePublicacion(producto : any) {
+    return this.http.patch(environment.apiBackend +"productos/modificar/", producto, {observe: 'response'});
+
+  }
+
   getProveedores(){
-    return this.http.get("http://localhost:8080/proveedores");
+    return this.http.get(environment.apiBackend +"proveedores");
+  }
+
+
+  deleteProducto(id:any){
+    return this.http.delete(environment.apiBackend +"productos/eliminar/"+id);
   }
 
 }

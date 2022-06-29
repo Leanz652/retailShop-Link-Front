@@ -13,12 +13,25 @@ export class MisPublicacionesComponent implements OnInit {
     private headervisible: EstaVisibleService) { }
 
   ngOnInit(): void {
-    this.dataService.getPublicacionesVendedor().subscribe((publicacion :any) => {
-      this.publicaciones = publicacion._embedded.productoes;
-      console.log(this.publicaciones);
-    })
-
+    this.buscarPublicacionesActivas();
     this.headervisible.hacerVisibleHeader();
+  }
+
+
+
+  buscarPublicacionesActivas() {
+    this.dataService.getPublicacionesVendedor().subscribe((publicacion :any) => {
+      this.publicaciones = publicacion._embedded.productosPublicados;
+      console.log(this.publicaciones);
+      this.publicaciones = this.publicaciones.filter((publi:any) => publi.activo == true);
+    })
+  }
+
+
+  eliminarProducto(id : any){
+    this.dataService.deleteProducto(id).subscribe( response => {
+      this.buscarPublicacionesActivas();
+    })
   }
 
 }

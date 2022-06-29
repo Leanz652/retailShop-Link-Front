@@ -1,0 +1,18 @@
+.card {
+  height: auto;
+  z-index: 3;
+  min-width: 250px;
+}
+
+.card:hover .card_link {
+  box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 10%);
+}
+
+
+.paginador {
+  position: sticky;
+  bottom: 0px;
+  margin-left:auto;
+  margin-top:auto;
+  width: 100%;
+}

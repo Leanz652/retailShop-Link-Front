@@ -23,6 +23,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { ListPublicacionesComponent } from './list-publicaciones/list-publicaciones.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 registerLocaleData(localeEsAr, 'es-Ar');
 
@@ -37,7 +40,8 @@ registerLocaleData(localeEsAr, 'es-Ar');
     MisComprasComponent,
     PublicacionComponent,
     MisPublicacionesComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ListPublicacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ registerLocaleData(localeEsAr, 'es-Ar');
     MatCardModule,
     MatNativeDateModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }],
   bootstrap: [AppComponent],

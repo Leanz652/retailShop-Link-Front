@@ -84,10 +84,10 @@
   </div>
 </div>
 
-<div class="d-none container-sm align-items-center d-sm-flex flex-column mt-4 p-0">
+<div  *ngIf="!esVendedor" class="d-none container-sm align-items-center d-sm-flex flex-column mt-4 p-0">
   <div class="container-sm p-0 d-flex align-self-start gap-3 col-lg-10 align-items-end">
     <p class="h2 text-start fw-light m-0">Publicaciones</p>
-    <a href="" class="text-center decoration-none">Ver todas</a>
+    <a href="" class="text-center decoration-none" [routerLink]="'/publicaciones'">Ver todas</a>
   </div>
 
   <div id="carouselExampleDark" class="carousel carousel-dark slide mt-3 col-lg-10" data-bs-ride="carousel">
@@ -101,7 +101,7 @@
           'display d-md-block':i==3  ,
           'd-none d-lg-block' : i==4}">
             <a class="card_link" routerLink="/publicacion/{{publicacion.id}}">
-              <img src="http://localhost:8080/get/image/{{publicacion.id}}" class="card-img-top" alt="..." />
+              <img src="https://retailshop-back.herokuapp.com/get/image/{{publicacion.idImagen}}" class="card-img-top" alt="..." />
               <div class="card-body border-top border-dark border-opacity-10">
                 <h5 class="text-dark">{{publicacion.precio | mask: 'separator.2':'.'}}$</h5>
                 <p class="m-0 fw-bolder fs-6 opacity-75 text-success p-0 m-0">
@@ -123,7 +123,7 @@
             'display d-md-block':i==3  ,
             'd-none d-lg-block' : i==4}">
             <a class="card_link" routerLink="/publicacion/{{publicacion.id}}">
-              <img src="http://localhost:8080/get/image/{{publicacion.id}}" class="card-img-top" alt="..." />
+              <img src="https://retailshop-back.herokuapp.com/get/image/{{publicacion.idImagen}}" class="card-img-top" alt="..." />
               <div class="card-body border-top border-dark border-opacity-10">
                 <h5 class="text-dark">{{publicacion.precio | mask: 'separator.2':'.'}}$</h5>
                 <p class="m-0 fw-bolder fs-6 opacity-75 text-success p-0 m-0">
@@ -158,27 +158,11 @@
 
   <h3 class="h3 border-bottom p-0 ps-2">Publicaciones</h3>
 
-  <div class="d-flex align-items-center  w-100 border-bottom">
-    <img class="img-fluid col-3" src="../assets/tv1.webp" alt="">
+  <div *ngFor="let publicacion of publicaciones.slice(0,5)" class="d-flex align-items-center  w-100 border-bottom">
+    <img class="img-fluid col-3" src="https://retailshop-back.herokuapp.com/get/image/{{publicacion.idImagen}}" alt="">
     <div class="col p-3">
-      <p>Televisor 40''. Pantalla OLED-4K</p>
-      <h6>50.000$</h6>
-    </div>
-  </div>
-
-  <div class="d-flex align-items-center  w-100 border-bottom">
-    <img class="img-fluid col-3" src="../assets/tv1.webp" alt="">
-    <div class="col p-3">
-      <p>Televisor 40''. Pantalla OLED-4K</p>
-      <h6>50.000$</h6>
-    </div>
-  </div>
-
-  <div class="d-flex align-items-center  w-100 border-bottom">
-    <img class="img-fluid col-3" src="../assets/tv1.webp" alt="">
-    <div class="col p-3">
-      <p>Televisor 40''. Pantalla OLED-4K</p>
-      <h6>50.000$</h6>
+      <p>{{publicacion.nombre}}</p>
+      <h6>{{publicacion.precio | mask: 'separator.2':'.'}}$</h6>
     </div>
   </div>
 

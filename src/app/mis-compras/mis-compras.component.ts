@@ -9,15 +9,15 @@ import { DataService } from '../data.service';
 })
 export class MisComprasComponent implements OnInit {
 
-  publicaciones : any = [];
   misCompras : any = [];
   constructor(private dataService: DataService,
     private headervisible: EstaVisibleService) { }
 
   ngOnInit(): void {
     this.dataService.getComprasComprador().subscribe((publicacion :any) => {
-      this.publicaciones = publicacion._embedded.ordenCompras;
-      console.log(this.publicaciones);  
+      console.log(publicacion);
+      this.misCompras = publicacion._embedded.ordenCompras
+      console.log(this.misCompras);
     })
 
     this.headervisible.hacerVisibleHeader();

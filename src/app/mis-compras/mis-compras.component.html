@@ -1,24 +1,25 @@
 <div class="container-md p-0 justify-content-center d-flex flex-column align-items-center mb-5">
 
   <h5  class="mt-3 col-lg-10 col-11 m-0" >Mis compras</h5>
-<ng-container *ngFor="let publicacion of publicaciones.reverse().slice(0,5)">
+<ng-container *ngFor="let compra of misCompras.reverse().slice(0,5)">
 
   <div class="row nav-list-item bg-white mt-3 mt-md-4 col-11 col-lg-10 rounded d-flex overflow-hidden gap-2">
-      <p class=" border-bottom pt-2 pe-0 mb-0 h-25 fw-semibold font-14">{{publicacion.fechaDePublicacion | date:'fullDate' | uppercase }}</p>
+      <p class=" border-bottom pt-2 pe-0 mb-0 h-25 fw-semibold font-14">{{compra.fechaCompra | date:'fullDate' | uppercase }}</p>
       <div class="d-flex container-md h-75  align-items-center py-3 px-1 px-md-3" >
-          <img class="col-3 col-md-2 col-lg-1 " src="http://localhost:8080/get/image/{{publicacion.id}}" alt="">
+          <img class="col-3 col-md-2 col-lg-1 " src="https://retailshop-back.herokuapp.com/get/image/{{compra.itemComprado.idImagen}}" alt="">
           <div class="col-5 col-md-5 ms-2 ms-md-0 text-start ps-lg-5" >
-              <p class=" opacity-75 ">{{publicacion.nombre}} </p>
+            <p class=" "> {{compra.itemComprado.nombre}} </p>
+              <p class=" opacity-75 "> Comprado a : {{compra.vendedor.nombre}} </p>
           </div>
 
           <div class="col-2 d-none d-md-block text-center" >
-              {{publicacion.precio | mask: 'separator.2':'.'}}$
+              {{compra.itemComprado.precio | mask: 'separator.2':'.'}}$
           </div>
 
           <div class="col-3 col-lg-2 ms-auto d-flex flex-column gap-2 text-center">
-            <a routerLink="/publicacion/{{publicacion.id}}">
-              <button class="btn btn-primary fs-6 px-0 w-100" style=" background-color: #007894; ">Ver publicación</button>
-            </a>
+
+              <button class="btn btn-primary fs-6 px-0 w-100" style=" background-color: #007894; ">Contactar vendedor</button>
+
           </div>
       </div>
   </div>

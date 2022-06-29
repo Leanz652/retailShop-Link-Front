@@ -63,31 +63,7 @@
   transition: height 2s;
 }
 
-.card {
-  max-height: 300px;
-  height: 300px;
-  z-index: 3;
-}
 
-.opacada-completo{
-  display: none;
-}
-
-.card:hover .card_link {
-  box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 10%);
-}
-
-.card:hover {
-  max-height: 390px;
-  min-height: 320px;
-  height: auto;
-  transition: max-height 0.25s;
-}
-
-.card:hover  .opacada-completo {
-  display: block;
-
-}
 
 .img-conteiner-footer{
   height: 55px;

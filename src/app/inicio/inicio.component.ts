@@ -1,3 +1,4 @@
+import { UsersService } from './../login/service/users.service';
 import { DataService } from './../data.service';
 import { EstaVisibleService } from './../generales/header/service/esta-visible.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class InicioComponent implements OnInit {
 
   publicaciones : any[] = [];
+  esVendedor: boolean = false;
 
   constructor(private estaVisibleService: EstaVisibleService,
-    private dataService : DataService) {
+    private dataService : DataService,
+    private userService: UsersService) {
     }
 
   ngOnInit(): void {
@@ -19,6 +22,8 @@ export class InicioComponent implements OnInit {
 
   this.dataService.getProductos().subscribe((productos : any) => {
   this.publicaciones = productos._embedded.productoes;
+  this.esVendedor = this.userService.esVendedor();
+  console.log(this.publicaciones);
   })
 }
 
